@@ -1,0 +1,87 @@
+﻿<Window x:Class="Westrock_Plate_Job_Manager.Views.OrderPlates"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Westrock_Plate_Job_Manager.Views"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="OrderPlates" Height="420" Width="400" MinWidth="400" MinHeight="420" MaxWidth="400" MaxHeight="420" WindowStartupLocation="CenterScreen"> <!-- Nice --> 
+    <Border Padding="10" >
+
+        <StackPanel>
+            <Label Content="Plate Type:" Margin="0 5 0 0" FontWeight="Bold" />
+            <ComboBox Margin="0 0 0 5" x:Name="plateTypeCbo" SelectionChanged="plateTypeCbo_SelectionChanged"/>
+
+
+            <Label Content="Plate Size (H x W):" FontWeight="Bold"/>
+            <ComboBox Margin="0 0 0 5" x:Name="plateSizeCbo" SelectionChanged="plateSizeCbo_SelectionChanged"/>
+
+
+            <Label Content="Plate Caliper:" FontWeight="Bold"/>
+            <ComboBox Margin="0 0 0 5" x:Name="plateCaliperCbo"/>
+
+
+            <Label Content="Plate Quantity:" FontWeight="Bold"/>
+            <xctk:IntegerUpDown Margin="0 0 0 5" x:Name="plateQuantityUpDown" Minimum="0" AllowTextInput="False"/>
+
+            <Label Content="Date Ordered:" FontWeight="Bold"/>
+            <DatePicker Margin="0 0 0 30" x:Name="dateOrderDtp">
+                <DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                    </Style>
+                </DatePicker.Resources>
+            </DatePicker>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/> 
+                    <ColumnDefinition Width="*"/> 
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Column="1" Grid.Row="1" x:Name="submitOrderBtn" Content="Submit" Height="40"
+                        Margin="0 0 10 0"  Click="submitOrderBtn_Click">
+                    <Button.BitmapEffect>
+                        <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
+                    </Button.BitmapEffect>
+                    <Button.Background >
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
+                            <GradientStop Color="LightBlue" Offset="0" />
+                            <GradientStop Color="#FF2196F3" Offset=".5" />
+
+
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Grid.Column="2" Grid.Row="1" x:Name="cancelOrderBtn" Content="Cancel" 
+                        Height="40" IsCancel="True" >
+                    <Button.BitmapEffect>
+                        <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
+                    </Button.BitmapEffect>
+                    <Button.Background >
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
+                            <GradientStop Color="LightBlue" Offset="0" />
+                            <GradientStop Color="#FF2196F3" Offset=".5" />
+
+
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+        </StackPanel>
+        
+        
+
+    </Border>
+</Window>
